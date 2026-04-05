@@ -11,8 +11,8 @@ A live-streaming cybersecurity dashboard for spacecraft telemetry anomaly detect
 
 SCH-HS monitors two spacecraft telemetry channels in real time and flags anomalies using CUSUM-based statistical detection:
 
-- **SCH (Scheduler) — `SCH_SCHEDULER_NUM`**: High-frequency scheduling tick events. Sensitive to sudden injection-style attacks.
-- **HS (Housekeeping) — `HS_EXECUTION_COUNTER`**: Periodic housekeeping execution counters. Suited for detecting slow drift anomalies over time.
+- **SCH (Scheduler) - `SCH_SCHEDULER_NUM`**: High-frequency scheduling tick events. Sensitive to sudden injection-style attacks.
+- **HS (Housekeeping) - `HS_EXECUTION_COUNTER`**: Periodic housekeeping execution counters. Suited for detecting slow drift anomalies over time.
 
 Running both channels in parallel enables cross-channel anomaly correlation — a spike in SCH with a flat HS curve distinguishes localized injection attacks from system-wide load events.
 
@@ -34,14 +34,13 @@ Running both channels in parallel enables cross-channel anomaly correlation — 
 
 **Backend**
 - Python 3.11
-- FastAPI — REST + WebSocket server
-- Uvicorn — ASGI server
-- CUSUM — statistical anomaly detection algorithm
+- FastAPI - REST + WebSocket server
+- Uvicorn - ASGI server
+- CUSUM - statistical anomaly detection algorithm
 
 **Frontend**
 - React 18
-- Chart.js — live telemetry waveform rendering
-- Space Grotesk font, cyan `#00daf3` on dark `#101419`
+- Chart.js - live telemetry waveform rendering
 
 ---
 
@@ -77,8 +76,8 @@ HS-SCH/
 
 ## Prerequisites
 
-- [Docker](https://www.docker.com/products/docker-desktop/) installed and running
-- No Python or Node installation required — Docker handles everything
+- Docker may be installed.
+- No Python or Node installation required.
 
 ---
 
@@ -86,7 +85,7 @@ HS-SCH/
 
 ```bash
 # Clone the repository
-git clone <repo-url>
+git clone Eshwar1440/HS-SCH
 cd HS-SCH
 
 # Build and start both services
@@ -143,7 +142,7 @@ chart.js
 
 ## Research Context
 
-This project is developed as part of the Purdue Data Mine undergraduate research program in collaboration with U.S. Space Force Space Systems Command. It explores CUSUM behavioral monitoring as a lightweight anomaly detection layer for spacecraft telemetry channels, targeting stealthy timing-based threats that evade high-level metric monitoring.
+This project is developed as part of the Purdue Data Mine undergraduate research program in collaboration with the U.S. Space Force Space Systems Command. It explores CUSUM behavioral monitoring as a lightweight anomaly detection layer for spacecraft telemetry channels, targeting stealthy timing-based threats that evade high-level metric monitoring.
 
 ---
 
