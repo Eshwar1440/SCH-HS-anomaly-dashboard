@@ -3,7 +3,7 @@
 **Real-Time Spacecraft Telemetry Anomaly Detection Dashboard**  
 Undergraduate Research · Purdue Data Mine × U.S. Space Force Space Systems Command
 
-A live-streaming cybersecurity dashboard for spacecraft telemetry anomaly detection using CUSUM-based statistical analysis across dual SCH/HS channels, with a military SCADA aesthetic and five synthetic attack profiles.
+A live-streaming cybersecurity dashboard for spacecraft telemetry anomaly detection using CUSUM-based statistical analysis across dual SCH/HS channels, with five synthetic attack profiles.
 
 ---
 
