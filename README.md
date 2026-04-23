@@ -59,7 +59,7 @@ HS-SCH/
 │   ├── server.py          # FastAPI app, WebSocket handler
 │   ├── cusum.py           # CUSUM detection logic
 │   ├── mock_data.py       # Synthetic telemetry + attack profile generator
-│   └── check_data.py      # Data validation utility
+│   
 └── dashboard/
     ├── Dockerfile
     ├── .dockerignore
