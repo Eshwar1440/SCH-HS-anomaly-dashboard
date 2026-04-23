@@ -42,6 +42,9 @@ Running both channels in parallel enables cross-channel anomaly correlation — 
 - React 18
 - Chart.js - live telemetry waveform rendering
 
+**AI Tools Used**
+- Claude
+- Stitch
 ---
 
 ## Project Structure
