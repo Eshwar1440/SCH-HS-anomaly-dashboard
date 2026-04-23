@@ -7,7 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from mock_data import SCH_MU, SCH_SIGMA, HS_MU, HS_SIGMA, ATTACK_PROFILES
 from cusum import DualChannelDetector, SCH_H, HS_H
 
-# Add these right after the import
 SCH_H = float(SCH_H)
 HS_H  = float(HS_H)
 
