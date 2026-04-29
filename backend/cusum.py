@@ -1,15 +1,5 @@
-# cusum.py
-# ==============================================================================
-# Stateful CUSUM Engine
-# Frame-by-frame processing — designed for WebSocket streaming from day one.
-# Handles absolute CUSUM (both sides) + derivative CUSUM for Attack 5.
-# ==============================================================================
-
 from mock_data import SCH_MU, SCH_SIGMA, HS_MU, HS_SIGMA
 
-# ------------------------------------------------------------------------------
-# Tier 0 calibration constants (would be loaded from hardened file in production)
-# ------------------------------------------------------------------------------
 import numpy as np
 
 # Absolute CUSUM constants
