@@ -1,10 +1,10 @@
-function Btn({ label, onClick, disabled, color }) {
+function Btn({ label, onClick, disabled, color, isMobile }) {
   return (
     <button onClick={onClick} disabled={disabled} style={{
       background: disabled ? 'transparent' : `${color}10`,
       border: `1px solid ${disabled ? '#2a3340' : color}`,
       color: disabled ? '#475569' : '#ffffff',
-      padding: '0 16px', height: 30,
+      padding: isMobile ? '0 10px' : '0 16px', height: 30,
       fontSize: 9, fontWeight: 700,
       letterSpacing: '0.16em',
       fontFamily: 'Space Grotesk, sans-serif',
@@ -17,12 +17,12 @@ function Btn({ label, onClick, disabled, color }) {
   );
 }
 
-export default function StreamControls({ connected, onConnect, onDisconnect, onReset }) {
+export default function StreamControls({ connected, onConnect, onDisconnect, onReset, isMobile }) {
   return (
     <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-      <Btn label="START" onClick={onConnect}    disabled={connected}  color="#00daf3" />
-      <Btn label="STOP"  onClick={onDisconnect} disabled={!connected} color="#ef4444" />
-      <Btn label="RESET" onClick={onReset}      disabled={!connected} color="#b9cac9" />
+      <Btn label="START" onClick={onConnect}    disabled={connected}  color="#00daf3" isMobile={isMobile} />
+      <Btn label="STOP"  onClick={onDisconnect} disabled={!connected} color="#ef4444" isMobile={isMobile} />
+      <Btn label="RESET" onClick={onReset}      disabled={!connected} color="#b9cac9" isMobile={isMobile} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState, useEffect } from 'react';
 import { useChart } from './useChart';
 import ChartPanel from './ChartPanel';
 
@@ -10,9 +10,15 @@ const ChartGrid = forwardRef(function ChartGrid({ alertType }, ref) {
   const schCusum = useChart({ label: 'S',   color: '#f472b6', yLabel: 'S',      hasThreshold: true  });
   const hsCusum  = useChart({ label: 'S',   color: '#a78bfa', yLabel: 'S',      hasThreshold: true  });
 
-  // Keep latest chart refs accessible
   const chartsRef = useRef({});
   chartsRef.current = { schVal, hsVal, schCusum, hsCusum };
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
 
   useImperativeHandle(ref, () => ({
     pushFrame(frame) {
@@ -39,8 +45,8 @@ const ChartGrid = forwardRef(function ChartGrid({ alertType }, ref) {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gridTemplateRows: '1fr 1fr',
+      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+      gridTemplateRows: isMobile ? 'repeat(4, 1fr)' : '1fr 1fr',
       gap: 2, flex: 1, minHeight: 0,
     }}>
       <ChartPanel title="SCH — SCHEDULER_SLIP"   statusText={schAlarm ? 'ANOMALY_DETECTED' : 'NOMINAL'} statusColor={schAlarm ? '#ef4444' : '#00daf3'} canvasRef={schVal.canvasRef}   alarmActive={schAlarm} />

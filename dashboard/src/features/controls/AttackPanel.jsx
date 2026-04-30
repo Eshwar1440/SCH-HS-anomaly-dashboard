@@ -1,10 +1,18 @@
-const COLORS      = ['#ef4444', '#f97316', '#eab308', '#8b5cf6', '#06b6d4'];
+const COLORS       = ['#ef4444', '#f97316', '#eab308', '#8b5cf6', '#06b6d4'];
 const SHORT_LABELS = ['FAST_AGG', 'SCH_SPOOF', 'SLOW_DRIFT', 'PATIENT', 'DERIV_ONLY'];
 
-export default function AttackPanel({ profiles, activeAttack, onInject, disabled }) {
+export default function AttackPanel({ profiles, activeAttack, onInject, disabled, isMobile }) {
   return (
-    <div style={{ display: 'flex', gap: 4, alignItems: 'center', flex: 1, justifyContent: 'flex-end' }}>
-      <span style={{ fontSize: 8, color: '#ffffff', letterSpacing: '0.15em', marginRight: 6 }}>
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 4,
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: isMobile ? 'flex-start' : 'flex-end',
+      marginTop: isMobile ? 4 : 0,
+    }}>
+      <span style={{ fontSize: 8, color: '#ffffff', letterSpacing: '0.15em', marginRight: 6, width: isMobile ? '100%' : 'auto' }}>
         INJECT_ATTACK
       </span>
       {profiles.map((p) => {
@@ -15,7 +23,7 @@ export default function AttackPanel({ profiles, activeAttack, onInject, disabled
             background: isActive ? `${color}18` : 'transparent',
             border: `1px solid ${isActive ? color : `${color}35`}`,
             color: disabled ? '#2a3340' : (isActive ? color : `${color}80`),
-            padding: '0 12px', height: 30,
+            padding: '0 8px', height: 30,
             fontSize: 9, fontWeight: 700,
             letterSpacing: '0.12em',
             fontFamily: 'Space Grotesk, sans-serif',
